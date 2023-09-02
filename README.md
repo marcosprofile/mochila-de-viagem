@@ -6,8 +6,8 @@
 
 - [x] Layout responsivo
 - [x] Adicionar item
-- [ ] Atualizar item
-- [ ] Remover item
+- [x] Atualizar item
+- [x] Remover item
 
 <br>
 
