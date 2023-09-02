@@ -1,41 +1,60 @@
-const form = document.getElementById('novoItem');
-const lista = document.getElementById('lista');
-const itens = JSON.parse(localStorage.getItem('itens')) || [];
+const form = document.getElementById('novoItem')
+const lista = document.getElementById('lista')
+const itens = JSON.parse(localStorage.getItem('itens')) || []
 
 itens.forEach((e) => {
-  criarElemento(e);
+  criarElemento(e)
 })
 
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  e.preventDefault()
 
-  const nome = e.target.elements['nome'];
-  const quantidade = e.target.elements['quantidade'];
+  const nome = e.target.elements['nome']
+  const quantidade = e.target.elements['quantidade']
 
+  const existe = itens.find(elemento => elemento.nome === nome.value)
+  
   const itemAtual = {
     "nome": nome.value,
     "quantidade": quantidade.value
-  };
+  }
 
-  criarElemento(itemAtual);
+  if (existe) {
+    itemAtual.id = existe.id
 
-  itens.push(itemAtual);
+    atualizaElemento(itemAtual)
 
-  localStorage.setItem('itens', JSON.stringify(itens));
+    itens[existe.id] = itemAtual
+  } else {
+    itemAtual.id = itens.length
+    
+    criarElemento(itemAtual)
+    
+    itens.push(itemAtual)
+  }
 
-  nome.value = "";
-  quantidade.value = "";
-});
+  localStorage.setItem('itens', JSON.stringify(itens))
+
+  nome.value = ""
+  quantidade.value = ""
+})
 
 function criarElemento(item) {
-  const novoItem = document.createElement('li');
-  novoItem.classList.add('item');
+  const novoItem = document.createElement('li')
+  novoItem.classList.add('item')
 
-  const numeroItem = document.createElement('strong');
-  numeroItem.innerHTML = item.quantidade;
-  novoItem.appendChild(numeroItem);
+  const numeroItem = document.createElement('strong')
+  numeroItem.innerHTML = item.quantidade
+  numeroItem.dataset.id = item.id
+  novoItem.appendChild(numeroItem)
 
-  novoItem.innerHTML += item.nome;
+  novoItem.innerHTML += item.nome
 
-  lista.appendChild(novoItem);
+  lista.appendChild(novoItem)
 }
+
+function atualizaElemento(item) {
+  document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
+}
+
+//localStorage.clear();
