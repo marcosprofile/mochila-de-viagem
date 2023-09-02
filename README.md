@@ -1,6 +1,10 @@
 # Mochila de viagem
 
-> Status: em desenvolvimento...
+> Status: Concluído ✔️
+
+<br>
+
+Neste projeto construi uma aplicação de lista de itens, onde é possível adicionar, atualizar ou remover um item da mochila. Aprendi na prática a interagir com a página e com o LocalStorage. Criei objetos no JavaScript. Registrei dados no LocalStorage. Implementei uma página WEB que armazena dados e entendi o comportamento do LocalStorage.
 
 <br>
 
@@ -16,4 +20,4 @@
 
 <br>
 
-![image](https://github.com/marcosprofile/mochila-de-viagem/assets/86635292/a00c5b7a-d22a-48ab-b16b-e7f8c8ece305)
+![image](https://github.com/marcosprofile/mochila-de-viagem/assets/86635292/3153253e-b97a-43f0-be47-93e059e2afd1)
